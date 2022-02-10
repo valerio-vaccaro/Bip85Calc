@@ -1,3 +1,6 @@
+// Bip85 pocket calculator - 2022 Valerio Vaccaro
+// Based on LNURLPoS structure https://github.com/arcbtc/LNURLPoS
+
 #include "SPI.h"
 #include "TFT_eSPI.h"
 #include <Keypad.h>
