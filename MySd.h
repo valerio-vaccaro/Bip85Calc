@@ -69,11 +69,10 @@ String readFile(fs::FS &fs, const char * path) {
   }
 
   String buff = "";
-  Serial.print("Read from file: ");
   while (file.available()) {
-    buff += file.read();
+    char c = file.read();
+    buff += c;
   }
-  Serial.write(buff.c_str());
   Serial.println("");
   file.close();
   return buff;

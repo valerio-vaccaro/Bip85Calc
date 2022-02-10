@@ -36,7 +36,6 @@ String key_val;
 String cntr = "0";
 String inputs;
 String virtkey;
-int randomPin;
 bool settle = false;
 RTC_DATA_ATTR int bootCount = 0;
 long timeOfLastInteraction = millis();
@@ -133,13 +132,12 @@ void setup(void) {
 }
 
 void bip85_derive(uint32_t index, char ** result_mnemonic) {
-  String mnemonic = "cup hunt peanut afford cute bridge bread immense artist story funny wrap weather weather monster duck spray gasp adjust clerk rather engage mind craft";
-  writeFile(SD, "/master_mnemonic.txt", mnemonic.c_str());
-  String mnemonic2 = readFile(SD, "/master_mnemonic.txt");
-
-  //String master_password = "";
-  //writeFile(SD, "/master_password.txt", master_password.c_str());
+  String mnemonic = readFile(SD, "/master_mnemonic.txt");
   String master_password = readFile(SD, "/master_password.txt");
+  Serial.print("Mnemonic: ");
+  Serial.println(mnemonic);
+  Serial.print("Password: ");
+  Serial.println(master_password);
 
   // converting recovery phrase to seed
   int res;
